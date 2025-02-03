@@ -11,7 +11,7 @@ pipeline {
 
         stage('CheckForDotNet') {
           steps {
-            sh 'dotnet --version'
+            sh 'apt-get install dotnet&&dotnet --version'
           }
         }
 

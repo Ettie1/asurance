@@ -11,7 +11,7 @@ pipeline {
 
         stage('CheckForDotNet') {
           steps {
-            sh 'suso apt-get install dotnet&&dotnet --version'
+            sh 'dotnet --version'
           }
         }
 

@@ -11,7 +11,7 @@ pipeline {
 
         stage('CheckForDotNet') {
           steps {
-            sh 'snap install dotnet --classic&&dotnet --version'
+            sh 'sudo apt install dotnet --classic&&dotnet --version'
           }
         }
 

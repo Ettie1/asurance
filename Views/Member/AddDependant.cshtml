@@ -1,0 +1,74 @@
+@model asurance.Models.Member
+  
+<h1>AddDependant</h1>
+
+<h4>Member</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddDependant" asp-controller="App" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*Html.HiddenFor(m => m.MemberId)*@
+            @*
+            <div class="form-group">
+                <label asp-for="MemberId" class="control-label"></label>
+                <input asp-for="MemberId" class="form-control" />
+                <span asp-validation-for="MemberId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubId" class="control-label"></label>
+                <input asp-for="SubId" class="form-control" />
+                <span asp-validation-for="SubId" class="text-danger"></span>
+            </div>
+            *@
+            <div class="form-group">
+                <label asp-for="MemberType" class="control-label"></label>
+                @*<input asp-for="MemberType" class="form-control" />*@
+                <select asp-for="MemberType" class="form-control">
+                <option>Choose an option</option>
+                    <option value="Spouse">Spouse</option>
+                    <option value="Child">Child</option>
+                    <option value="Dependant">Dependant</option>
+                </select>
+                <span asp-validation-for="MemberType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Firstname" class="control-label"></label>
+                <input asp-for="Firstname" class="form-control" />
+                <span asp-validation-for="Firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecondName" class="control-label"></label>
+                <input asp-for="SecondName" class="form-control" />
+                <span asp-validation-for="SecondName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lastname" class="control-label"></label>
+                <input asp-for="Lastname" class="form-control" />
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDNo" class="control-label"></label>
+                <input asp-for="IDNo" class="form-control" />
+                <span asp-validation-for="IDNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

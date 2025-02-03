@@ -1,0 +1,62 @@
+@model asurance.ViewModels.MainMemViewModel
+
+<h1>Add Contact</h1>
+
+<div>
+
+    <form asp-action="AddContact" asp-controller="App" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+                <label asp-for="ContactDetail.Celphone" class="control-label"></label>
+                <input asp-for="ContactDetail.Celphone" class="form-control" />
+                <span asp-validation-for="ContactDetail.Celphone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContactDetail.Email" class="control-label"></label>
+                <input asp-for="ContactDetail.Email" class="form-control" />
+                <span asp-validation-for="ContactDetail.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContactDetail.HomeTel" class="control-label"></label>
+                <input asp-for="ContactDetail.HomeTel" class="form-control" />
+                <span asp-validation-for="ContactDetail.HomeTel" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContactDetail.WorkTel" class="control-label"></label>
+                <input asp-for="ContactDetail.WorkTel" class="form-control" />
+                <span asp-validation-for="ContactDetail.WorkTel" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContactDetail.Other" class="control-label"></label>
+                <input asp-for="ContactDetail.Other" class="form-control" />
+                <span asp-validation-for="ContactDetail.Other" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                @* <label asp-for="ContactDetail.Other" class="control-label"></label> *@
+                <input hidden asp-for="ContactDetail.Other" value=@ViewBag.MemberId class="form-control" />
+                @* <span asp-validation-for="ContactDetail.Other" class="text-danger"></span> *@
+            </div>
+
+            <div class="form-group">
+                <label hidden asp-for="MainMemberId" class="control-label"></label>
+                <input hidden value=@ViewBag.MemberId asp-for="MainMemberId" class="form-control" />
+                <span asp-validation-for="MainMemberId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+
+    </form>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

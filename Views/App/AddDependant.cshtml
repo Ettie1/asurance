@@ -1,0 +1,92 @@
+@model asurance.ViewModels.MainMemViewModel
+
+
+@{
+    ViewData["Title"] = "AddDependant";
+    //int MemberId = ViewBag.MemberId;
+    //Model.SubId = ViewBag.MemberId;
+}
+
+<h1>AddDependant</h1>
+
+<h4>Member</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="AddDependant" asp-controller="App" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*Html.HiddenFor(m => m.MemberId)*@
+            @*
+            <div class="form-group">
+                <label asp-for="MemberId" class="control-label"></label>
+                <input asp-for="MemberId" class="form-control" />
+                <span asp-validation-for="MemberId" class="text-danger"></span>
+            </div>
+            *@
+            <div class="form-group">
+                <label hidden asp-for="MainMember.SubId" class="control-label"></label>
+                <input hidden value=@ViewBag.MemberId asp-for="MainMember.SubId" class="form-control" />
+                <span asp-validation-for="MainMember.SubId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="MainMember.MemberType" class="control-label"></label>
+                @*<input asp-for="MemberType" class="form-control" />*@
+                <select asp-for="MainMember.MemberType" class="form-control">
+                <option>Choose an option</option>
+                    <option value="Spouse">Spouse</option>
+                    <option value="Child">Child</option>
+                    <option value="Dependant">Dependant</option>
+                </select>
+                <span asp-validation-for="MainMember.MemberType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MainMember.Title" class="control-label"></label>
+                <input asp-for="MainMember.Title" class="form-control" />
+                <span asp-validation-for="MainMember.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MainMember.Firstname" class="control-label"></label>
+                <input asp-for="MainMember.Firstname" class="form-control" />
+                <span asp-validation-for="MainMember.Firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MainMember.SecondName" class="control-label"></label>
+                <input asp-for="MainMember.SecondName" class="form-control" />
+                <span asp-validation-for="MainMember.SecondName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MainMember.Lastname" class="control-label"></label>
+                <input asp-for="MainMember.Lastname" class="form-control" />
+                <span asp-validation-for="MainMember.Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MainMember.IDNo" class="control-label"></label>
+                <input asp-for="MainMember.IDNo" class="form-control" />
+                <span asp-validation-for="MainMember.IDNo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label hidden asp-for="MainMemberId" class="control-label"></label>
+                <input hidden value=@ViewBag.MemberId asp-for="MainMemberId" class="form-control" />
+                <span asp-validation-for="MainMemberId" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

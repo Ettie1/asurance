@@ -1,0 +1,62 @@
+@model asurance.ViewModels.MainMemViewModel
+
+<h1>Add Address</h1>
+
+<div>
+
+    <form asp-action="AddAddress" asp-controller="App" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+                @* <label asp-for="Address.Addr1" class="control-label"></label> *@
+                <input asp-for="Address.AddressType" value="Home" class="form-control" />
+                @* <span hidden asp-validation-for="Address.Addr1" class="text-danger"></span> *@
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Address.Addr1" class="control-label"></label>
+                <input asp-for="Address.Addr1" class="form-control" />
+                <span asp-validation-for="Address.Addr1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Address.Addr2" class="control-label"></label>
+                <input asp-for="Address.Addr2" class="form-control" />
+                <span asp-validation-for="Address.Addr2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Address.Addr3" class="control-label"></label>
+                <input asp-for="Address.Addr3" class="form-control" />
+                <span asp-validation-for="Address.Addr3" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Address.Addr4" class="control-label"></label>
+                <input asp-for="Address.Addr4" class="form-control" />
+                <span asp-validation-for="Address.Addr4" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                @* <label asp-for="Address.MemberId" class="control-label"></label> *@
+                <input hidden value=@ViewBag.MemberId asp-for="Address.MemberId" class="form-control" />
+                @* <span hidden asp-validation-for="Address.MemberId" class="text-danger"></span> *@
+            </div>
+
+            <div class="form-group">
+                <label hidden asp-for="MainMemberId" class="control-label"></label>
+                <input hidden value=@ViewBag.MemberId asp-for="MainMemberId" class="form-control" />
+                <span asp-validation-for="MainMemberId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+
+    </form>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

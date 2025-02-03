@@ -1,0 +1,8 @@
+@model IEnumerable<asurance.Models.ContactDetail>
+
+<table>
+    @foreach(var a in Model)
+    {
+        <td>@a.Celphone</td><td>@a.Email </td><td>@a.HomeTel</td><td>@a.WorkTel</td><td>@a.Other</td>
+    }
+</table>

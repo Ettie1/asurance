@@ -1,0 +1,8 @@
+@model IEnumerable<asurance.Models.Address>
+
+<table>
+    @foreach(var a in Model)
+    {
+        <td>@a.Addr1</td><td>@a.Addr2</td><td>@a.Addr3</td><td>@a.Addr4</td>
+    }
+</table>

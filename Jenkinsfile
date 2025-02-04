@@ -11,7 +11,7 @@ pipeline {
 
         stage('CheckForDotNet') {
           steps {
-            sh 'cd ..&&cp asurance /var/jenkins_home/workspace/'
+            sh 'cp . /var/jenkins_home/workspace/'
             dotnetBuild(charset: 'utf8')
           }
         }

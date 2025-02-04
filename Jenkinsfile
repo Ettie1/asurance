@@ -11,7 +11,7 @@ pipeline {
 
         stage('CheckForDotNet') {
           steps {
-            sh 'sudo apt install dotnet --classic&&dotnet --version'
+            dotnetBuild(charset: 'utf8')
           }
         }
 
